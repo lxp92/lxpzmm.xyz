@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-19T07:51:32.505Z</updated>
+  <updated>2018-11-20T03:20:54.307Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,19 +17,21 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>title”</title>
-    <link href="http://yoursite.com/2018/11/16/title%E2%80%9D/"/>
-    <id>http://yoursite.com/2018/11/16/title”/</id>
-    <published>2018-11-16T10:57:57.000Z</published>
-    <updated>2018-11-19T07:51:32.505Z</updated>
+    <title>Android的系统架构</title>
+    <link href="http://yoursite.com/2018/11/20/Android%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"/>
+    <id>http://yoursite.com/2018/11/20/Android的系统架构/</id>
+    <published>2018-11-20T03:01:28.000Z</published>
+    <updated>2018-11-20T03:20:54.307Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<pre><code>android系统架构</code></pre><p>#应用层<br>  第一层是应用层，就是开发者开发的app，非系统级的应用都属于应用层</p><p>#FRAMEWORK<br>  第二层就是服务层，这一层是为应用层提供api的，通常都是java代码写的，常见的有activity manager，window manager等</p><p>#NATIVE<br>  第三层就是native层，包括了2部分，一部分是c/c++写的，能被android系统的不同组件所使用，并通过framework层提供服务，像opengl，sqlite，ssl等。另外一部分就是android运行时库，里面有java的核心库和虚拟机，在5.0之后dalvik被art取代，这个就是个虚拟机用来运行应用的，允许在有限的内存中同时运行多个虚拟机的实例，并且每一个dalvik应用作为一个单独的linux进程，独立的进程可以防止虚拟机崩溃的时候所有程序都被关闭，art与dalvik区别是，davik在每次运行的时候都会将字节码通过即时编译器转换为机器码，运行效率不高，而art会在安装应用时进行一次预编译，编译成机器码保存在本地，这样每次运行的时候就不需要执行编译了</p><p>#硬件抽象层<br> 硬件抽象层是位于操作系统内核与硬件电路之间的接口层，其目的在于将硬件抽象化，为了保护硬件厂商的知识产权，它隐藏了特定平台的硬件接口细节，为操作系统提供虚拟硬件平台，使其具有硬件无关性，可在多钟平台上进行移植。</p><p>#linux内核</p><p>android的核心系统服务基于linux内核，在此基础上添加了部分android专用的驱动。系统的安全性，内存管理，进程管理，网络协议栈和驱动模型等都依赖于该内核。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#
+        &lt;pre&gt;&lt;code&gt;android系统架构
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;#应用层&lt;br&gt;  第一层是应用层，就是开发者开发的app，非系统级的应用都属于应用层&lt;/p&gt;
+&lt;p&gt;#FRAMEWORK&lt;br&gt;  第二层就是服务层，这一层是为应用层提供api的，通常都是java代码
       
     
     </summary>
