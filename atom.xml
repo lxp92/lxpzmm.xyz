@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-20T07:01:05.503Z</updated>
+  <updated>2018-12-20T07:56:09.189Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/12/20/%E2%80%9C%E7%90%86%E8%A7%A3%E4%B8%8A%E4%B8%8B%E6%96%87Context%E2%80%9D/"/>
     <id>http://yoursite.com/2018/12/20/“理解上下文Context”/</id>
     <published>2018-12-20T06:53:19.000Z</published>
-    <updated>2018-12-20T07:01:05.503Z</updated>
+    <updated>2018-12-20T07:56:09.189Z</updated>
     
-    <content type="html"><![CDATA[<p>#Context是什么<br>  context是上下文，是一个应用程序环境信息的接口，activity和service,application都间接继承自Context,因此一个应用程序进程中有多少个context是可以计算出来的，就是activity的数量+service的数量+1（application）</p><p>#Context的使用场景<br>  1.使用Context的调用方法，比如启动activity，访问资源，调用系统级服务等<br>  2.调用方法时传入Context，比如弹出toast，创建dialog等</p>]]></content>
+    <content type="html"><![CDATA[<p>#Context是什么<br>  context是上下文，是一个应用程序环境信息的接口，activity和service,application都间接继承自Context,因此一个应用程序进程中有多少个context是可以计算出来的，就是activity的数量+service的数量+1（application）</p><p>#Context的使用场景<br>  1.使用Context的调用方法，比如启动activity，访问资源，调用系统级服务等</p><p>  2.调用方法时传入Context，比如弹出toast，创建dialog等</p><p>  在使用时候我们什么时候会使用applicationcontext什么时候使用activitycontext：在对于ui相关的方法建议使用activitycontext（toast是个例外，使用applicationcontext也可以），其他操作是都可以，both ok，注意context的引用的时候注意生命周期，防止内存泄漏。</p><p>#Context关联类<br>   继承关系如下：<br>  <img src="https://upload-images.jianshu.io/upload_images/2911038-b085b93fb212fdd4.png" alt="Context继承关系图" title="这是Context继承关系图"></p><p>  我们可以看到activity和application都是间接继承自context，contextwrapper和contextimpl继承context，如类名命名一样，contextwrapper是一个包装类，里面有一个context实例mBase，实现是contextimpl，这里用到的就是一个装饰模式，contextwrapper中几乎所有的方法都是调用的contextimpl的相应方法实现的。其中contextthemewrapper也是contextwrapper的装饰类，添加了和主题相关的方法（比如gettheme方法），因此activity需要继承contextthemewrapper，而service就直接继承contextwrapper就好了。</p><p>  后续会给总结applicaiton，activity，service的启动过程。</p>]]></content>
     
     <summary type="html">
     
