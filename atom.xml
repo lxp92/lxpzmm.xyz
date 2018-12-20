@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-20T03:20:54.307Z</updated>
+  <updated>2018-12-20T07:01:05.503Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>“理解上下文Context”</title>
+    <link href="http://yoursite.com/2018/12/20/%E2%80%9C%E7%90%86%E8%A7%A3%E4%B8%8A%E4%B8%8B%E6%96%87Context%E2%80%9D/"/>
+    <id>http://yoursite.com/2018/12/20/“理解上下文Context”/</id>
+    <published>2018-12-20T06:53:19.000Z</published>
+    <updated>2018-12-20T07:01:05.503Z</updated>
+    
+    <content type="html"><![CDATA[<p>#Context是什么<br>  context是上下文，是一个应用程序环境信息的接口，activity和service,application都间接继承自Context,因此一个应用程序进程中有多少个context是可以计算出来的，就是activity的数量+service的数量+1（application）</p><p>#Context的使用场景<br>  1.使用Context的调用方法，比如启动activity，访问资源，调用系统级服务等<br>  2.调用方法时传入Context，比如弹出toast，创建dialog等</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#Context是什么&lt;br&gt;  context是上下文，是一个应用程序环境信息的接口，activity和service,application都间接继承自Context,因此一个应用程序进程中有多少个context是可以计算出来的，就是activity的数量+servic
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Android的系统架构</title>
