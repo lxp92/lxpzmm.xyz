@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-20T07:56:09.189Z</updated>
+  <updated>2019-05-07T06:26:13.983Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>理解handler原理</title>
+    <link href="http://yoursite.com/2019/03/06/%E7%90%86%E8%A7%A3handler%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/2019/03/06/理解handler原理/</id>
+    <published>2019-03-06T09:41:30.000Z</published>
+    <updated>2019-05-07T06:26:13.983Z</updated>
+    
+    <content type="html"><![CDATA[<p>#原因<br>  先说一说handler出现的原因，android为什么会提供这个功能呢？这是因为android规定访问ui需要在主线程进行，如果在子线程的话就会异常，ViewRootImpl中的checkThread方法来检测的。</p><p>#原理<br>Handler创建时会采用当前线程的Looper来构建内部的消息循环系统，如果当前线程没有Looper，那么就会报错。然后调用handler.sendMessage()方法，会继续调用延迟为0的sendMessageDelayed（），然后会加上系统时间加延迟时间调用sendMessageAtTime（）（这个时间会在后面延迟处理消息的时候用到），然后得到messagequeue，调用enqueueMessage（），然后调用messagequeue的enqueueMessage（）方法，然后按照时间线把当前message加入到messagequeue中。这个时候就要调用looper.loop来处理消息，最终一个死循环里调用msg.target(就是handler).dispatchMessage来处理消息。</p><p>###Looper<br>一个线程必须要有looper，looper.prepare创建looper，looper.loop循环处理消息，</p><p>###ThreadLocal<br>   说到handler就不得不说一下threadlocal。threadlocal是一个线程内部的数据存储类。他本身是由一个threadlocalmap来存储数据，这个对象是存储在thread类里的，所以他是按照线程做的区分，每个线程存储的数据各不相同。</p><p>###MessageQueue<br>在looper里面保存的消息队列</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#原因&lt;br&gt;  先说一说handler出现的原因，android为什么会提供这个功能呢？这是因为android规定访问ui需要在主线程进行，如果在子线程的话就会异常，ViewRootImpl中的checkThread方法来检测的。&lt;/p&gt;
+&lt;p&gt;#原理&lt;br&gt;Handle
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>“理解上下文Context”</title>
