@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-11T03:00:11.099Z</updated>
+  <updated>2020-06-11T02:06:21.885Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,28 +17,6 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>HashMap理解</title>
-    <link href="http://yoursite.com/2020/06/11/HashMap%E7%90%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2020/06/11/HashMap理解/</id>
-    <published>2020-06-11T02:59:32.000Z</published>
-    <updated>2020-06-11T03:00:11.099Z</updated>
-    
-    <content type="html"><![CDATA[<p>hashmap在jdk1.7和1.8上是有区别的，在1.7上是数组+链表的形式，在1.8上是数组+链表+红黑树的形式。</p><p>在讲解hashmap之前我们先讲解一下hash。hash算法就是散列算法。就是把任意长度的输入变成有限长度的输出。是不可逆的算法，像md5，SHA1就是。通常散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，这就是hash碰撞。一个好的hash算法是减小hash碰撞率的。</p><p>红黑树，就是一种自平衡的二叉查找树。有如下性质：</p><p>性质1. 节点是红色或黑色。</p><p>性质2. 根节点是黑色。</p><p>性质3 每个叶节点（NIL节点，空节点）是黑色的。</p><p>性质4 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</p><p>性质5. 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。</p><p>接下来我们来看hashmap，在1.7上使用了entry数组来存储数据，用hash来得出index，用于存放在数据的位置，如果index相同，会存到同一个位置，这个位置用链表来保存，这就是hashmap解决碰见的链地址法，其他还有开放定址法（发生冲突，继续寻找下一块未被占用的存储地址），再散列函数法，如果得出的index都是一样的话，时间复杂度会变大o（n），红黑树我们大致了解了，他的好处就是他的自平衡性，让他这棵树的最大高度为2log(n+1)，n是树的节点数。那么红黑树的复杂度就只有 O(log n)。</p><p>接下来我们来看一下1.8的源码，在putval方法里，先进行hash算出index，然后判断index的位置是否有值，没有就直接插入进去，如果有，就进行链表的尾插法，如果链表长度达到8就会自动扩容把链表转成红黑树的数据结构来把时间复杂度从O（n）变成O（logN）提高了效率，如果有旧值，就返回旧值，然后拿新值替换旧值存储。</p><p>final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {</p><pre><code>    int n, index; Node&lt;K,V&gt; e;    if (tab == null || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)        resize();  //开始树形化    else if ((e = tab[index = (n - 1) &amp; hash]) != null) {        TreeNode&lt;K,V&gt; hd = null, tl = null;      //对桶Node中的链表元素进行循环，从链表的头节点开始将链表的头元素改为树的头节点        do {            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, null);            if (tl == null)                hd = p;            else {              //树的头节点不为空时                p.prev = tl;                tl.next = p;            }            tl = p;        } while ((e = e.next) != null);        //将桶中的元素与树的头节点进行连接        if ((tab[index] = hd) != null)            hd.treeify(tab);    }}</code></pre><p>hashmap数组的容量默认16，是2的n次方，因为当长度是2的n次方时候，比如1111 11111 都能保证得到和原来hash低位相同，也就是扩容后只有一个位差异，多出来最左边位的1 这样只要对应左边的哪一个差异位为0，就能保证得到新的数组索引和老的数组索引一直 ，这样数据在数组的分布比较均匀，也就是说减少碰撞的几率，减少了链表的遍历，提升效率。</p><p>hashmap的扩容，默认的负载因子是0.75，默认的容量是16，如果超过这个值就会进行一次扩容，这个时候需要对所有值都重新计算一次，非常影响性能，所以如果你可以预知长度的话尽量提前设置长度提高性能。一次扩容就是把容量扩大一倍。</p><p>hashmap是线程不安全的，要想线程安全需要使用：</p><p>方法一:通过Collections.synchronizedMap()返回一个新的Map,这个新的map就是线程安全的. 这个要求大家习惯基于接口编程,因为返回的并不是HashMap,而是一个Map的实现</p><p>方法二:重新改写了HashMap,具体的可以查看java.util.concurrent.ConcurrentHashMap. 这个方法比方法一有了很大的改进</p><p>方法三:hashtable.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;hashmap在jdk1.7和1.8上是有区别的，在1.7上是数组+链表的形式，在1.8上是数组+链表+红黑树的形式。&lt;/p&gt;
-&lt;p&gt;在讲解hashmap之前我们先讲解一下hash。hash算法就是散列算法。就是把任意长度的输入变成有限长度的输出。是不可逆的算法，像md5，
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>事件分发</title>
     <link href="http://yoursite.com/2020/06/11/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/"/>
     <id>http://yoursite.com/2020/06/11/事件分发/</id>
@@ -46,6 +24,29 @@
     <updated>2020-06-11T02:06:21.885Z</updated>
     
     <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HashMap理解</title>
+    <link href="http://yoursite.com/2019/06/11/HashMap%E7%90%86%E8%A7%A3/"/>
+    <id>http://yoursite.com/2019/06/11/HashMap理解/</id>
+    <published>2019-06-11T02:59:32.000Z</published>
+    <updated>2020-07-14T02:27:50.866Z</updated>
+    
+    <content type="html"><![CDATA[<p>#原因</p><p>hashmap在jdk1.7和1.8上是有区别的，在1.7上是数组+链表的形式，在1.8上是数组+链表+红黑树的形式。</p><p>在讲解hashmap之前我们先讲解一下hash。hash算法就是散列算法。就是把任意长度的输入变成有限长度的输出。是不可逆的算法，像md5，SHA1就是。通常散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，这就是hash碰撞。一个好的hash算法是减小hash碰撞率的。</p><p>红黑树，就是一种自平衡的二叉查找树。有如下性质：</p><p>性质1. 节点是红色或黑色。</p><p>性质2. 根节点是黑色。</p><p>性质3 每个叶节点（NIL节点，空节点）是黑色的。</p><p>性质4 每个红色节点的两个子节点都是黑色。(从每个叶子到根的所有路径上不能有两个连续的红色节点)</p><p>性质5. 从任一节点到其每个叶子的所有路径都包含相同数目的黑色节点。</p><p>接下来我们来看hashmap，在1.7上使用了entry数组来存储数据，用hash来得出index，用于存放在数据的位置，如果index相同，会存到同一个位置，这个位置用链表来保存，这就是hashmap解决碰见的链地址法，其他还有开放定址法（发生冲突，继续寻找下一块未被占用的存储地址），再散列函数法，如果得出的index都是一样的话，时间复杂度会变大o（n），红黑树我们大致了解了，他的好处就是他的自平衡性，让他这棵树的最大高度为2log(n+1)，n是树的节点数。那么红黑树的复杂度就只有 O(log n)。</p><p>接下来我们来看一下1.8的源码，在putval方法里，先进行hash算出index，然后判断index的位置是否有值，没有就直接插入进去，如果有，就进行链表的尾插法，如果链表长度达到8就会自动扩容把链表转成红黑树的数据结构来把时间复杂度从O（n）变成O（logN）提高了效率，如果有旧值，就返回旧值，然后拿新值替换旧值存储。</p><p>final void treeifyBin(Node&lt;K,V&gt;[] tab, int hash) {</p><pre><code>    int n, index; Node&lt;K,V&gt; e;    if (tab == null || (n = tab.length) &lt; MIN_TREEIFY_CAPACITY)        resize();  //开始树形化    else if ((e = tab[index = (n - 1) &amp; hash]) != null) {        TreeNode&lt;K,V&gt; hd = null, tl = null;      //对桶Node中的链表元素进行循环，从链表的头节点开始将链表的头元素改为树的头节点        do {            TreeNode&lt;K,V&gt; p = replacementTreeNode(e, null);            if (tl == null)                hd = p;            else {              //树的头节点不为空时                p.prev = tl;                tl.next = p;            }            tl = p;        } while ((e = e.next) != null);        //将桶中的元素与树的头节点进行连接        if ((tab[index] = hd) != null)            hd.treeify(tab);    }}</code></pre><p>hashmap数组的容量默认16，是2的n次方，因为当长度是2的n次方时候，比如1111 11111 都能保证得到和原来hash低位相同，也就是扩容后只有一个位差异，多出来最左边位的1 这样只要对应左边的哪一个差异位为0，就能保证得到新的数组索引和老的数组索引一直 ，这样数据在数组的分布比较均匀，也就是说减少碰撞的几率，减少了链表的遍历，提升效率。</p><p>hashmap的扩容，默认的负载因子是0.75，默认的容量是16，如果超过这个值就会进行一次扩容，这个时候需要对所有值都重新计算一次，非常影响性能，所以如果你可以预知长度的话尽量提前设置长度提高性能。一次扩容就是把容量扩大一倍。</p><p>hashmap是线程不安全的，要想线程安全需要使用：</p><p>方法一:通过Collections.synchronizedMap()返回一个新的Map,这个新的map就是线程安全的. 这个要求大家习惯基于接口编程,因为返回的并不是HashMap,而是一个Map的实现</p><p>方法二:重新改写了HashMap,具体的可以查看java.util.concurrent.ConcurrentHashMap. 这个方法比方法一有了很大的改进</p><p>方法三:hashtable.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#原因&lt;/p&gt;
+&lt;p&gt;hashmap在jdk1.7和1.8上是有区别的，在1.7上是数组+链表的形式，在1.8上是数组+链表+红黑树的形式。&lt;/p&gt;
+&lt;p&gt;在讲解hashmap之前我们先讲解一下hash。hash算法就是散列算法。就是把任意长度的输入变成有限长度的输出。是不
+      
     
     </summary>
     
