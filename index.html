@@ -38,7 +38,7 @@
     <h2 class="author">tracy_liu</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>6</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>
@@ -102,7 +102,60 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2020/06/11/事件分发/" data-id="ckcmq5d1v00039c9vqcpeb4s3" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2020/06/11/事件分发/" data-id="ckcn7nsri0003759vdnml1bw6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-java虚拟机的理解(一)" class="wow slideInRight article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/11/java虚拟机的理解(一)/" class="article-date">
+  <time class="post-time" datetime="2020-03-11T06:45:18.000Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br>
+    <span class="post-day">11</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/11/java虚拟机的理解(一)/">java虚拟机（一）</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="虚拟机的内存分配"><a href="#虚拟机的内存分配" class="headerlink" title="虚拟机的内存分配"></a>虚拟机的内存分配</h2><h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>   是一块比较小的空间，跟着线程的生命周期创建和删除，记录了当前线程执行的位置,为了线程切换后能恢复到正确的位置。如果是走到native方法记录是undefined。</p>
+<h3 id="java虚拟机栈"><a href="#java虚拟机栈" class="headerlink" title="java虚拟机栈"></a>java虚拟机栈</h3><p>   栈帧是虚拟机栈的数据结构，与程序计数器一样，虚拟机栈也是线程私有的，每个方法的执行都会创建，会记录局部变量表和操作数栈和方法出口等信息。局部变量表存放了基本数据类型和对象引用。</p>
+<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3><p>   它与Java虚拟机栈类似，只不过本地方法栈是用来支持Native方法服务。</p>
+<h3 id="java堆"><a href="#java堆" class="headerlink" title="java堆"></a>java堆</h3><p>   java堆是被所有线程共享的运行时内存区域，用来存放对象实例，从内存分配的角度java堆中可能划分出多个线程私有的缓冲区，为了线程安全的问题，如果线程a在申请这块区域的地址，这时线程b也来申请这块，就会造成线程安全，所以为每个线程分配了一个tlab内存区域。java堆存储的对象被垃圾收集器管理着，就是gc。</p>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><p>   是被所有线程共享的运行时内存区域。包括常量池，字段，方法信息，静态变量等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://lxpzmm.xyz/2020/03/11/java虚拟机的理解(一)/" data-id="ckcn7nsrg0002759volz75olk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2019/06/11/HashMap理解/" data-id="ckcmq5d2200059c9vhpgk5me1" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2019/06/11/HashMap理解/" data-id="ckcn7nsrk0004759ve4iz9tc7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -266,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2019/03/06/理解handler原理/" data-id="ckcmq5d1x00049c9vv8lmdrjd" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2019/03/06/理解handler原理/" data-id="ckcn7nsrr0006759vk19e9abu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2018/12/20/“理解上下文Context”/" data-id="ckcmq5d1u00029c9vdty7zb3p" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2018/12/20/“理解上下文Context”/" data-id="ckcn7nsrp0005759vuhsxgvvm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2018/11/20/Android的系统架构/" data-id="ckcmq5d1j00009c9vtrwaawfd" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2018/11/20/Android的系统架构/" data-id="ckcn7nsr90001759v8qbb3cdk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -433,7 +486,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2018/11/16/hello-world/" data-id="ckcmq5d1o00019c9vh57jo3hc" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2018/11/16/hello-world/" data-id="ckcn7nsr30000759veaf5k0nx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -485,7 +538,7 @@
     <h2 class="author">tracy_liu</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>6</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>
