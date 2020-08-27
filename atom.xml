@@ -31,11 +31,11 @@
   </entry>
   
   <entry>
-    <title>java虚拟机（一）</title>
+    <title>计算机网络1</title>
     <link href="http://lxpzmm.xyz/2020/05/07/%E7%BD%91%E7%BB%9C1/"/>
     <id>http://lxpzmm.xyz/2020/05/07/网络1/</id>
     <published>2020-05-07T08:42:28.000Z</published>
-    <updated>2020-08-27T10:36:32.111Z</updated>
+    <updated>2020-08-27T10:41:07.944Z</updated>
     
     <content type="html"><![CDATA[<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>   OSI七层网络模型 VS Tcp/Ip四层模型</p><pre><code>![Image text](https://raw.githubusercontent.com/lxp92/tracy-/master/1598524323688.jpg)</code></pre>]]></content>
     
