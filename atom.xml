@@ -32,6 +32,27 @@
   
   <entry>
     <title>java虚拟机（一）</title>
+    <link href="http://lxpzmm.xyz/2020/05/07/%E7%BD%91%E7%BB%9C1/"/>
+    <id>http://lxpzmm.xyz/2020/05/07/网络1/</id>
+    <published>2020-05-07T08:42:28.000Z</published>
+    <updated>2020-08-27T10:36:32.111Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>   OSI七层网络模型 VS Tcp/Ip四层模型</p><pre><code>![Image text](https://raw.githubusercontent.com/lxp92/tracy-/master/1598524323688.jpg)</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;计算机网络&quot;&gt;&lt;a href=&quot;#计算机网络&quot; class=&quot;headerlink&quot; title=&quot;计算机网络&quot;&gt;&lt;/a&gt;计算机网络&lt;/h2&gt;&lt;h3 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>java虚拟机（一）</title>
     <link href="http://lxpzmm.xyz/2020/03/11/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E7%90%86%E8%A7%A3(%E4%B8%80)/"/>
     <id>http://lxpzmm.xyz/2020/03/11/java虚拟机的理解(一)/</id>
     <published>2020-03-11T06:45:18.000Z</published>
