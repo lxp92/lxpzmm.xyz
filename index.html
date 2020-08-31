@@ -102,7 +102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2020/06/11/事件分发/" data-id="ckecorc8r00022z9vc2v4m11v" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2020/06/11/事件分发/" data-id="ckecos7bq0005559v9ixsuqia" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,13 +146,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>   OSI七层网络模型 VS Tcp/Ip四层模型</p>
+        <h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>   OSI七层网络模型 VS Tcp/Ip四层模型</p>
 <p><img src="https://raw.githubusercontent.com/lxp92/tracy-/master/1598524323688.jpg" alt="Image text"></p>
+<p>  七层模型不是每一层都有具体的实现，是个理想中的模型</p>
+<h3 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h3><p><img src="https://raw.githubusercontent.com/lxp92/tracy-/master/sanciwoshou.jpg" alt="Image text"></p>
+<p>   首先是由客户端主动给服务器发送心跳包，SYN就是初始序号，服务端收到之后也会给客户端发一个SYN，并且还有一个ACK确认号，是之前客户端的值+1，然后客户端收到后会再给服务器发送一个确认包ACK是之前服务端的初试序号+1，三次握手成功.</p>
+<h5 id="为什么不能是2次握手？"><a href="#为什么不能是2次握手？" class="headerlink" title="为什么不能是2次握手？"></a>为什么不能是2次握手？</h5><p>   因为tcp是全双工通信的，需要双方都确认才可以，如果少了第三次握手时机，服务端不知道客户端是否收到了自己发送的.如果你细读RFC793，也就是TCP的协议RFC，你就会发现里面就讲到了为什么三次握手是必须的——TCP 需要 seq 序列号来做可靠重传或接收，而避免连接复用时无法分辨出 seq是延迟或者是旧链接的seq，因此需要三次握手来约定确定双方的 ISN（初始 seq 序列号）。</p>
+<h3 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h3><p><img src="https://raw.githubusercontent.com/lxp92/tracy-/master/sicihuishou.jpg" alt="Image text"></p>
+<p>   1.当c端的应用程序结束数据传输时，会向s端发送一个FIN（finish）包，此时c端进入FIN_WAIT1状态，c端不能再给s端发数据了。<br>   2.s端收到FIN包后会响应一个ACK包，此时s端进入CLOSE_WAIT状态，进入此状态后s端会把剩余未发送的数据发送给c端，c端收到s端的ACK包后进入FIN_WAIT2状态。<br>   3.s端发送完数据后，也会发送FIN断开连接的请求，s端进入LAST_ACK状态。<br>   4.c端收到s端的断开连接的请求后会启动一个定时器，时长是2MSL，同时发送最后一次ACK包。</p>
+<h5 id="为什么不能跟握手一样是三次？"><a href="#为什么不能跟握手一样是三次？" class="headerlink" title="为什么不能跟握手一样是三次？"></a>为什么不能跟握手一样是三次？</h5><p>  因为tcp是全双工通信，可以来回传输，当一端停止后，另一端不能确认是没有数据要发送的，所以这次确认和发送断开连接要分开，不能捎带应答。</p>
+<h5 id="为什么要等待2MSL时间？"><a href="#为什么要等待2MSL时间？" class="headerlink" title="为什么要等待2MSL时间？"></a>为什么要等待2MSL时间？</h5><p>  因为2MSL是一个来回的最大时间，s端在发送断开请求的时候，这个时间是重试的时间，只有当s端收到ACK包后才不会重试，这个时间正好最大时间是2MSL，就是如果这个时间c端没有继续收到s端发送的断开包，就说明s端已经收到了自己发送的ACK包，自己就可以断开连接了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2020/05/07/网络1/" data-id="ckecorc8w00042z9vb161m18b" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2020/05/07/网络1/" data-id="ckecos7bv0007559vna1jqkw9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2020/03/11/java虚拟机的理解(一)/" data-id="ckecorca500052z9vkvnrzfdk" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2020/03/11/java虚拟机的理解(一)/" data-id="ckecos7az0003559vi8d1akq4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -316,7 +324,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2019/06/11/HashMap理解/" data-id="ckecorcas00072z9vnbtjk0t3" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2019/06/11/HashMap理解/" data-id="ckecos7ax0002559v3fm9rbbn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -369,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2019/03/06/理解handler原理/" data-id="ckecorc8t00032z9v4a9jkw37" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2019/03/06/理解handler原理/" data-id="ckecos7bs0006559vawij9jfo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -424,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2018/12/20/“理解上下文Context”/" data-id="ckecorc8k00012z9vt5b37jin" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2018/12/20/“理解上下文Context”/" data-id="ckecos7bh0004559vz74z1olt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -479,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2018/11/20/Android的系统架构/" data-id="ckecorca700062z9vhajz5rqz" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2018/11/20/Android的系统架构/" data-id="ckecos7aa0000559vijq2xf34" class="article-share-link">Share</a>
       
       
     </footer>
@@ -536,7 +544,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://lxpzmm.xyz/2018/11/16/hello-world/" data-id="ckecorc8d00002z9v12lu8bkz" class="article-share-link">Share</a>
+      <a data-url="http://lxpzmm.xyz/2018/11/16/hello-world/" data-id="ckecos7al0001559vwmr2v25p" class="article-share-link">Share</a>
       
       
     </footer>
